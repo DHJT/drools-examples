@@ -1,0 +1,12 @@
+server:
+  port: 8080
+  
+spring:  datasource:    url: jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=true&allowMultiQueries=false&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:    show-sql: true
+    open-in-view: false # Open Session In View简称OSIV，是为了解决在mvc的controller中使用了hibernate的lazy load的属性时没有session抛出的LazyInitializationException异常；对hibernate来说ToMany关系默认是延迟加载，而ToOne关系则默认是立即加载,通过OSIV技术来解决LazyInitialization问题会导致open的session生命周期过长，它贯穿整个request
+    hibernate:      ddl-auto: update
+    properties:#      hibernate.hbm2ddl.auto: update
+      hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect

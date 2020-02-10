@@ -1,6 +1,6 @@
 package rules
 
-import com.neo.drools.entity.Order
+import tech.dhjt.drools.entity.Order
 
 rule "zero"
     no-loop true

@@ -16,7 +16,7 @@
 
 package rules
  
-import com.neo.drools.HelloWorldExample.Message;
+import tech.dhjt.drools.HelloWorldExample.Message;
 
 global java.util.List list
  
