@@ -1,17 +1,18 @@
 package com.neo.drools.controller;
 
-import com.neo.drools.model.Address;
-import com.neo.drools.model.fact.AddressCheckResult;
-import com.neo.drools.service.ReloadDroolsRulesService;
-import org.kie.api.runtime.KieContainer;
+import java.io.IOException;
+
+import javax.annotation.Resource;
+
 import org.kie.api.runtime.KieSession;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.annotation.Resource;
-import java.io.IOException;
-
+import com.neo.drools.model.Address;
+import com.neo.drools.model.fact.AddressCheckResult;
+import com.neo.drools.service.ReloadDroolsRulesService;
 
 @RequestMapping("/test")
 @Controller
@@ -21,8 +22,8 @@ public class TestController {
     private ReloadDroolsRulesService rules;
 
     @ResponseBody
-    @RequestMapping("/address")
-    public void test(int num){
+    @GetMapping("/address")
+    public void test(int num) {
         Address address = new Address();
         address.setPostcode(generateRandom(num));
         KieSession kieSession = ReloadDroolsRulesService.kieContainer.newKieSession();
@@ -34,7 +35,7 @@ public class TestController {
         kieSession.destroy();
         System.out.println("触发了" + ruleFiredCount + "条规则");
 
-        if(result.isPostCodeResult()){
+        if (result.isPostCodeResult()) {
             System.out.println("规则校验通过");
         }
 
@@ -42,6 +43,7 @@ public class TestController {
 
     /**
      * 从数据加载最新规则
+     *
      * @return
      * @throws IOException
      */
@@ -52,18 +54,18 @@ public class TestController {
         return "ok";
     }
 
-
     /**
      * 生成随机数
+     *
      * @param num
      * @return
      */
     public String generateRandom(int num) {
         String chars = "0123456789";
-        StringBuffer number=new StringBuffer();
+        StringBuffer number = new StringBuffer();
         for (int i = 0; i < num; i++) {
             int rand = (int) (Math.random() * 10);
-            number=number.append(chars.charAt(rand));
+            number = number.append(chars.charAt(rand));
         }
         return number.toString();
     }
