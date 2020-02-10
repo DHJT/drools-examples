@@ -16,6 +16,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<tomcat.version>8.5.11</tomcat.version>
+		<drools.version>7.32.0.Final</drools.version>
 	</properties>
 
 	<dependencyManagement>
@@ -34,12 +35,12 @@
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-core</artifactId>
-			<version>6.5.0.Final</version>
+			<version>${drools.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-compiler</artifactId>
-			<version>6.5.0.Final</version>
+			<version>${drools.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>

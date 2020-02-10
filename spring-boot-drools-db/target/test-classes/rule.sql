@@ -38,7 +38,7 @@ CREATE TABLE `rule` (
 --  Records of `rule`
 -- ----------------------------
 BEGIN;
-INSERT INTO `rule` VALUES ('1', 'package plausibcheck.adress\n\nimport com.neo.drools.model.Address;\nimport com.neo.drools.model.fact.AddressCheckResult;\n\nrule \"Postcode 6 numbers\"\n\n    when\n        address : Address(postcode != null, postcode matches \"([0-9]{6})\")\n        checkResult : AddressCheckResult();\n    then\n        checkResult.setPostCodeResult(true);\n		System.out.println(\"规则6中打印日志：校验通过!\");\nend', '111', '111', 'score', '1');
+INSERT INTO `rule` VALUES ('1', 'package plausibcheck.adress\n\nimport tech.dhjt.drools.model.Address;\nimport tech.dhjt.drools.model.fact.AddressCheckResult;\n\nrule \"Postcode 6 numbers\"\n\n    when\n        address : Address(postcode != null, postcode matches \"([0-9]{6})\")\n        checkResult : AddressCheckResult();\n    then\n        checkResult.setPostCodeResult(true);\n		System.out.println(\"规则6中打印日志：校验通过!\");\nend', '111', '111', 'score', '1');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

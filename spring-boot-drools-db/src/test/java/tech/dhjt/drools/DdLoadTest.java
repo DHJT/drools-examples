@@ -2,9 +2,9 @@ package tech.dhjt.drools;
 
 import java.io.UnsupportedEncodingException;
 
+import org.kie.api.KieServices;
+import org.kie.api.builder.KieFileSystem;
 import org.kie.api.io.ResourceType;
-import org.kie.internal.KnowledgeBase;
-import org.kie.internal.KnowledgeBaseFactory;
 import org.kie.internal.builder.KnowledgeBuilder;
 import org.kie.internal.builder.KnowledgeBuilderError;
 import org.kie.internal.builder.KnowledgeBuilderErrors;
@@ -49,10 +49,13 @@ public class DdLoadTest {
             for (KnowledgeBuilderError error : errors) {
                 System.out.println(error);
             }
-            KnowledgeBase kBase = KnowledgeBaseFactory.newKnowledgeBase();
-            kBase.addKnowledgePackages(kb.getKnowledgePackages());
+//            KnowledgeBase kBase = KnowledgeBaseFactory.newKnowledgeBase();
+//            kBase.addKnowledgePackages(kb.getKnowledgePackages());
+//
+//            kSession = kBase.newStatefulKnowledgeSession();
 
-            kSession = kBase.newStatefulKnowledgeSession();
+            KieServices kieServices = KieServices.Factory.get();
+            KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
 
             Message message1 = new Message();
             message1.setStatus(1);
