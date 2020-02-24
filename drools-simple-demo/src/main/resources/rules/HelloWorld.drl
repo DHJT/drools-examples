@@ -25,8 +25,8 @@ rule "Hello World"
     when
         m : Message( status == Message.HELLO, message : message )
     then
-        System.out.println( message );
-//        modify ( m ) { setMessage( "Goodbyte cruel world" ),
+        System.out.println( message + "131");
+//        modify ( m ) { setMessage( "Goodbyte cruel world224" ),
 //                       setStatus( Message.GOODBYE ) };
     modify ( m ) { message = "Goodbye cruel world",
                    status = Message.GOODBYE };

@@ -66,10 +66,10 @@ public class HelloWorldExample {
 
         // The application can insert facts into the session
         final Message message = new Message();
-//        message.setMessage( "Hello World" );
-//        message.setStatus( Message.HELLO );
-        message.setMessage("GOODBYE");
-        message.setStatus(Message.GOODBYE);
+        message.setMessage( "Hello World" );
+        message.setStatus( Message.HELLO );
+//        message.setMessage("GOODBYE-121");
+//        message.setStatus(Message.GOODBYE);
         ksession.insert(message);
 
         // and fire the rules

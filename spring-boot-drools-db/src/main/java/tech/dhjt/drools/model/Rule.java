@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 @Entity
+//@EntityListeners({ SupervisionStreamWorkingMemoryPartitionEntityListener.class })
 public class Rule implements Serializable {
 
     private static final long serialVersionUID = 1L;

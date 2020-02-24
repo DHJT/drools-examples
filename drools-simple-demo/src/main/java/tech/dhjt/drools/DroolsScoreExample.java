@@ -44,12 +44,14 @@ public class DroolsScoreExample {
 
         for (int i = 0; i < orderList.size(); i++) {
             Order o = orderList.get(i);
+            System.out.println(o.getScore());
             ksession.insert(o);
             ksession.fireAllRules();
             // 执行完规则后, 执行相关的逻辑
             addScore(o);
         }
-
+        // This method <b>must</b> always be called after finishing using the session, or the engine
+        // will not free the memory used by the session.
         ksession.dispose();
 
     }
